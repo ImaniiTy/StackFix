@@ -12,28 +12,33 @@ namespace Oxide.Plugins
 	[Description("Stacksize")]
 
 	class Stacksize : HurtworldPlugin
-	{
+	{   
+
+
+
 		void OnServerInitialized() => ConfigStacks();
 
         void ConfigStacks(){
+
             GlobalItemManager GIM = GlobalItemManager.Instance;
             Dictionary<int, ItemGeneratorAsset> generators = GIM.GetGenerators();
-            generators[170].GetDataProvider().MaxStackSize = (int)Config["Steak"];
-            generators[279].GetDataProvider().MaxStackSize = (int)Config["Steak"];
-            generators[338].GetDataProvider().MaxStackSize = (int)Config["Steak"];
-            generators[76].GetDataProvider().MaxStackSize = (int)Config["FreshOwrong"];
-            generators[166].GetDataProvider().MaxStackSize = (int)Config["Arrows"];
-            generators[36].GetDataProvider().MaxStackSize = (int)Config["OwnershipStake"];
-            generators[10].GetDataProvider().MaxStackSize = (int)Config["Spears"];
-            generators[325].GetDataProvider().MaxStackSize = (int)Config["Spears"];
-            generators[331].GetDataProvider().MaxStackSize = (int)Config["C4"];
-            generators[274].GetDataProvider().MaxStackSize = (int)Config["Dynamite"];
+            generators[170].GetDataProvider().MaxStackSize = (ushort)(int)Config["Steak"];
+            generators[279].GetDataProvider().MaxStackSize = (ushort)(int)Config["Steak"];
+            generators[338].GetDataProvider().MaxStackSize = (ushort)(int)Config["Steak"];
+            generators[76].GetDataProvider().MaxStackSize = (ushort)(int)Config["FreshOwrong"];
+            generators[166].GetDataProvider().MaxStackSize = (ushort)(int)Config["Arrows"];
+            generators[36].GetDataProvider().MaxStackSize = (ushort)(int)Config["OwnershipStake"];
+            generators[10].GetDataProvider().MaxStackSize = (ushort)(int)Config["Spears"];
+            generators[325].GetDataProvider().MaxStackSize = (ushort)(int)Config["Spears"];
+            generators[331].GetDataProvider().MaxStackSize = (ushort)(int)Config["C4"];
+            generators[274].GetDataProvider().MaxStackSize = (ushort)(int)Config["Dynamite"];
 
         }
 
 		void Loaded()
 		{
 			LoadDefaultConfig();
+
             /*
             GIM.GetItem(4).GetType().BaseType.GetProperty("MaxStackSize").SetValue(GIM.GetItem(4) as IItem, (int)Config["Steak"], null);
             GIM.GetItem(5).GetType().BaseType.GetProperty("MaxStackSize").SetValue(GIM.GetItem(5) as IItem, (int)Config["Steak"], null);
@@ -201,26 +206,27 @@ namespace Oxide.Plugins
             SaveConfig();
         }
 		
-        /*
+        
 		[ChatCommand("stackitems")]
 		void stackCommand(PlayerSession session)
 		{
 			Dictionary<int, int> items = new Dictionary<int, int>();
-			Inventory inv = session.WorldPlayerEntity.gameObject.GetComponent<PlayerInventory>();
-			GlobalItemManager GIM = Singleton<GlobalItemManager>.Instance;
-			if(inv.Items.Length > 0)
+			Inventory inv = session.WorldPlayerEntity.Storage;
+			GlobalItemManager GIM = GlobalItemManager.Instance;
+			if(!inv.IsEmpty())
 			{
 				for(int i = 0; i < inv.Capacity; i++)
 				{
 					if(i < 8 || i > 15)
 					{
-						ItemInstance item = inv.GetSlot(i);
+						ItemObject item = inv.GetSlot(i);
+
 						if(item != null)
 						{
-							if(items.ContainsKey(item.Item.ItemId))
-								items[item.Item.ItemId] += item.StackSize;
+							if(items.ContainsKey(item.ItemId))
+								items[item.ItemId] += item.StackSize;
 							else
-								items.Add(item.Item.ItemId, item.StackSize);
+								items.Add(item.ItemId, item.StackSize);
 							
 							item.StackSize = 0;
 							inv.Invalidate();
@@ -229,11 +235,12 @@ namespace Oxide.Plugins
 				}
 				foreach(var item in items)
 				{
-					GIM.GiveItem(session.Player, GIM.GetItem(item.Key), item.Value);
+                    GIM.GiveItem(session.Player, GIM.GetGenerators()[item.Key], item.Value);
 					inv.Invalidate();
+
 				}
 			}
 		}
-        */
+        
 	}
 }
