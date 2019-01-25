@@ -34,7 +34,6 @@ namespace Oxide.Plugins
 		void Loaded()
 		{
 			LoadDefaultConfig();
-
             /*
             GIM.GetItem(4).GetType().BaseType.GetProperty("MaxStackSize").SetValue(GIM.GetItem(4) as IItem, (int)Config["Steak"], null);
             GIM.GetItem(5).GetType().BaseType.GetProperty("MaxStackSize").SetValue(GIM.GetItem(5) as IItem, (int)Config["Steak"], null);
