@@ -206,11 +206,11 @@ namespace Oxide.Plugins
             SaveConfig();
         }
 		
-        /*
 		[ChatCommand("stackitems")]
 		void stackCommand(PlayerSession session)
 		{
 			Dictionary<int, int> items = new Dictionary<int, int>();
+            Dictionary<int, ItemGeneratorAsset> generators = new Dictionary<int, ItemGeneratorAsset>();
 			Inventory inv = session.WorldPlayerEntity.Storage;
 			GlobalItemManager GIM = GlobalItemManager.Instance;
 			if(!inv.IsEmpty())
@@ -225,9 +225,10 @@ namespace Oxide.Plugins
 						{
 							if(items.ContainsKey(item.ItemId))
 								items[item.ItemId] += item.StackSize;
-							else
+							else {
 								items.Add(item.ItemId, item.StackSize);
-							
+                                generators.Add(item.ItemId, item.Generator);
+                            }
 							item.StackSize = 0;
 							inv.Invalidate();
 						}
@@ -235,13 +236,12 @@ namespace Oxide.Plugins
 				}
 				foreach(var item in items)
 				{
-                    GIM.GiveItem(session.Player, GIM.GetGenerators()[item.Key], item.Value);
+                    GIM.GiveItem(session.Player, generators[item.Key], item.Value);
 					inv.Invalidate();
 
 				}
 			}
 		}
-        */
         
 	}
 }
