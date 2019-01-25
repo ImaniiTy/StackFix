@@ -206,7 +206,7 @@ namespace Oxide.Plugins
             SaveConfig();
         }
 		
-        
+        /*
 		[ChatCommand("stackitems")]
 		void stackCommand(PlayerSession session)
 		{
@@ -241,6 +241,7 @@ namespace Oxide.Plugins
 				}
 			}
 		}
+        */
         
 	}
 }
