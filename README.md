@@ -4,7 +4,7 @@ Just a Temporary fix to the plugin StackSize
 New Ids list:
 https://steamcommunity.com/sharedfiles/filedetails/?id=1108537579
 
-# Change Pattern:
+# Changes Pattern:
 
   -Old:
   
