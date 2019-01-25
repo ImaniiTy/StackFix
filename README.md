@@ -8,8 +8,8 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=1108537579
 
   -Old:
   
-	GIM.GetItem(OldId).GetType().BaseType.GetProperty("MaxStackSize").SetValue(GIM.GetItem(OldId) as IItem, (int)Config["Steak"], null);
+	GIM.GetItem(OldId).GetType().BaseType.GetProperty("MaxStackSize").SetValue(GIM.GetItem(OldId) as IItem, (int)Config["ConfigName"], null);
   
   -New:
   
-	generators[NewId].GetDataProvider().MaxStackSize = (ushort)(int)Config["Steak"];
+	generators[NewId].GetDataProvider().MaxStackSize = (ushort)(int)Config["ConfigName"];
