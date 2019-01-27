@@ -8,14 +8,10 @@ namespace Oxide.Plugins
 
     class Stacksize : HurtworldPlugin
     {
-
-
-
         void OnServerInitialized() => ConfigStacks();
 
         void ConfigStacks()
         {
-
             GlobalItemManager GIM = GlobalItemManager.Instance;
             Dictionary<int, ItemGeneratorAsset> generators = GIM.GetGenerators();
             generators[170].GetDataProvider().MaxStackSize = (ushort)(int)Config["Steak"];
@@ -36,135 +32,35 @@ namespace Oxide.Plugins
         void Loaded()
         {
             LoadDefaultConfig();
-
         }
 
         protected override void LoadDefaultConfig()
         {
-            if (Config["Steak"] == null)
-            {
-                Config.Set("Steak", 1);
-            }
-
-            if (Config["Ruby"] == null)
-            {
-                Config.Set("Ruby", 1);
-            }
-
-            if (Config["Arrows"] == null)
-            {
-                Config.Set("Arrows", 50);
-            }
-
-            if (Config["FreshOwrong"] == null)
-            {
-                Config.Set("FreshOwrong", 1);
-            }
-
-            if (Config["Dynamite"] == null)
-            {
-                Config.Set("Dynamite", 5);
-            }
-
-            if (Config["C4"] == null)
-            {
-                Config.Set("C4", 1);
-            }
-
-            if (Config["Paints"] == null)
-            {
-                Config.Set("Paints", 1);
-            }
-
-            if (Config["PoisonTrap"] == null)
-            {
-                Config.Set("PoisonTrap", 1);
-            }
-
-            if (Config["CarParts"] == null)
-            {
-                Config.Set("CarParts", 1);
-            }
-
-            if (Config["CarPanels"] == null)
-            {
-                Config.Set("CarPanels", 1);
-            }
-
-            if (Config["GoatPanels"] == null)
-            {
-                Config.Set("GoatPanels", 1);
-            }
-
-            if (Config["Wheels"] == null)
-            {
-                Config.Set("Wheels", 1);
-            }
-
-            if (Config["Designs"] == null)
-            {
-                Config.Set("Designs", 1);
-            }
-
-            if (Config["Drills"] == null)
-            {
-                Config.Set("Drills", 1);
-            }
-
-            if (Config["Wrench"] == null)
-            {
-                Config.Set("Wrench", 1);
-            }
-
-            if (Config["OwnershipStake"] == null)
-            {
-                Config.Set("OwnershipStake", 1);
-            }
-
-            if (Config["ConstructionHammer"] == null)
-            {
-                Config.Set("ConstructionHammer", 1);
-            }
-
-            if (Config["BlastFurnace"] == null)
-            {
-                Config.Set("BlastFurnace", 1);
-            }
-
-            if (Config["Backpacks"] == null)
-            {
-                Config.Set("Backpacks", 1);
-            }
-
-            if (Config["LandcrabMine"] == null)
-            {
-                Config.Set("LandcrabMine", 1);
-            }
-
-            if (Config["Sign"] == null)
-            {
-                Config.Set("Sign", 1);
-            }
-
-            if (Config["Spears"] == null)
-            {
-                Config.Set("Spears", 1);
-            }
-
-            if (Config["Diamonds"] == null)
-            {
-                Config.Set("Diamonds", 1);
-            }
-
-            if (Config["KangaParts"] == null)
-            {
-                Config.Set("KangaParts", 1);
-            }
-
-            if (Config["KangaPanels"] == null)
-            {
-                Config.Set("KangaPanels", 1);
-            }
+            if (Config["Steak"] == null) Config.Set("Steak", 1);
+            if (Config["Ruby"] == null) Config.Set("Ruby", 1);
+            if (Config["Arrows"] == null) Config.Set("Arrows", 50);
+            if (Config["FreshOwrong"] == null) Config.Set("FreshOwrong", 1);
+            if (Config["Dynamite"] == null) Config.Set("Dynamite", 5);
+            if (Config["C4"] == null) Config.Set("C4", 1);
+            if (Config["Paints"] == null) Config.Set("Paints", 1);
+            if (Config["PoisonTrap"] == null) Config.Set("PoisonTrap", 1);
+            if (Config["CarParts"] == null) Config.Set("CarParts", 1);
+            if (Config["CarPanels"] == null) Config.Set("CarPanels", 1);
+            if (Config["GoatPanels"] == null) Config.Set("GoatPanels", 1);
+            if (Config["Wheels"] == null) Config.Set("Wheels", 1);
+            if (Config["Designs"] == null) Config.Set("Designs", 1);
+            if (Config["Drills"] == null) Config.Set("Drills", 1);
+            if (Config["Wrench"] == null) Config.Set("Wrench", 1);
+            if (Config["OwnershipStake"] == null) Config.Set("OwnershipStake", 1);
+            if (Config["ConstructionHammer"] == null) Config.Set("ConstructionHammer", 1);
+            if (Config["BlastFurnace"] == null) Config.Set("BlastFurnace", 1);
+            if (Config["Backpacks"] == null) Config.Set("Backpacks", 1);
+            if (Config["LandcrabMine"] == null) Config.Set("LandcrabMine", 1);
+            if (Config["Sign"] == null) Config.Set("Sign", 1);
+            if (Config["Spears"] == null) Config.Set("Spears", 1);
+            if (Config["Diamonds"] == null) Config.Set("Diamonds", 1);
+            if (Config["KangaParts"] == null) Config.Set("KangaParts", 1);
+            if (Config["KangaPanels"] == null) Config.Set("KangaPanels", 1);
 
             SaveConfig();
         }
